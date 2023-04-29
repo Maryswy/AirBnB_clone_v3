@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ holds class Review"""
 import models
 from models.base_model import BaseModel, Base
@@ -18,6 +18,7 @@ class Review(BaseModel, Base):
         place_id = ""
         user_id = ""
         text = ""
+
 
     def __init__(self, *args, **kwargs):
         """initializes Review"""

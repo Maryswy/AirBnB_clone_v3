@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ holds class Place"""
 import models
 from models.base_model import BaseModel, Base
@@ -6,6 +6,7 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
+
 
 if models.storage_t == 'db':
     place_amenity = Table('place_amenity', Base.metadata,
@@ -17,6 +18,7 @@ if models.storage_t == 'db':
                                  ForeignKey('amenities.id', onupdate='CASCADE',
                                             ondelete='CASCADE'),
                                  primary_key=True))
+
 
 
 class Place(BaseModel, Base):
@@ -50,9 +52,11 @@ class Place(BaseModel, Base):
         longitude = 0.0
         amenity_ids = []
 
+
     def __init__(self, *args, **kwargs):
         """initializes Place"""
         super().__init__(*args, **kwargs)
+
 
     if models.storage_t != 'db':
         @property
@@ -65,6 +69,7 @@ class Place(BaseModel, Base):
                 if review.place_id == self.id:
                     review_list.append(review)
             return review_list
+
 
         @property
         def amenities(self):

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ holds class City"""
 import models
 from models.base_model import BaseModel, Base
@@ -18,6 +18,7 @@ class City(BaseModel, Base):
     else:
         state_id = ""
         name = ""
+
 
     def __init__(self, *args, **kwargs):
         """initializes city"""
